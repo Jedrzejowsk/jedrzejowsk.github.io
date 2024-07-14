@@ -1,0 +1,304 @@
+\documentclass[a4paper,11pt,twocolumn]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{lipsum}
+\usepackage{mathptmx}
+\usepackage{polski}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+% Adjust the stretch factor to control spacing
+\setstretch{0.9}
+
+% !TEX root = relative/or/absolute/path/to/root/file.tex
+
+\begin{comment}
+\newcommand*{	ablename}{Tabela}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\end{comment}
+
+\usepackage{enumitem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[left=2.00cm, right=2.00cm]{geometry}
+\usepackage{placeins}
+\usepackage{hyperref}
+
+\title{Measurement of Neutron-Induced, Fission Fragment Energy Spectra in the Advanced Laboratory -  J11}
+\author{Grzegorz Jędrzejowski}
+\date{21 November 2023}
+
+\begin{document}
+
+
+\twocolumn[
+  \maketitle
+  \vspace*{-5em}
+  \section*{}
+  \centering
+  
+    \begin{minipage}{0.86\textwidth}  % Adjust the width as needed (e.g., 0.8\textwidth)
+      
+      The detailed analysis of neutron-induced fission fragment energy spectra has resulted in the identification of fission products, specifically as Krypton and Barium, achieved through the meticulous determination of their mass ratio. This comprehensive experimental investigation has provided invaluable insights, enabling the calculation of the neutron flux, yielding a value of $\Phi=(1531\pm18)$ s$^{-1}$ cm$^{-2}$.
+    \end{minipage}
+  
+  \vspace*{2em}
+]
+
+
+\section{Introduction}
+\subsection{Nuclear Fission}
+The first experimental evidence of a fission reaction was obtained in late 1938. Isotopes of Barium, formed as a consequence of the bombardment of Uranium with neutrons, were observed by German scientists Hahn and Strassman. Such a phenomenon is defined as the process that results in a heavy atomic nuclide dividing into two (or three) fragments\cite{theory}. Nuclear fission has a surprising property known as mass deficit, explained by nuclear binding energy compensating for the lacking mass. The objective is to analyze Uranium (235). Fission can be induced (stimulated). In this case, the nucleus of Uranium (235) is being provoked by neutrons to split, one of the possible reactions is \cite{podr}\cite{podr2}:
+
+\begin{equation}
+\notag
+^1_0n + ^{235}_{92}U \rightarrow ^{236}_{92}U^\star \rightarrow ^{141}_{56}Ba + ^{92}_{36}Kr + 3^1_0n + \gamma.
+\end{equation}
+\noindent
+Neutrons inducing fission are obtained in the following reaction\cite{reakcja}:
+
+\begin{equation}
+^{239}Pu + ^9Be \rightarrow ^{235}U + ^4_2\alpha + ^9Be \rightarrow ^{235}U + ^{12}C + ^1_0n. \notag
+\end{equation}
+\noindent
+To maximize the possibility of such a reaction, the active cross-section ($\sigma$) needs to be analyzed as a function of the energy of the neutron.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\linewidth]{figures/przekroj.png}
+\caption{Active cross-section of neutron-induced fission of $^{234}$U, $^{235}$U, $^{238}$U in the function of neutron's energy\cite{instr}.}
+\label{pic:przekroj}
+\end{figure}
+\noindent
+As shown in Figure \ref{pic:przekroj}, the highest probability of fission occurs for thermal neutrons. These neutrons are produced by slowing them down with the moderator (paraffin). The reduction in speed (energy) is caused by collisions with carbon and hydrogen nuclei. The relation follows the equation:
+
+\begin{equation}
+E\approx kT,
+\notag
+\end{equation}
+\noindent
+where $E=25$ meV for $T=300$ K. Assuming the initial momenta of Uranium (235) and neutrons are equal to 0, we can write down the following equation:
+
+\begin{equation}
+M_1 V_1=M_2 V_2, \notag
+\end{equation}
+\noindent
+where $M_1$ and $M_2$ represent the mass of fission products and $V_1$ and $V_2$ are their velocities. These properties can be treated as non-relativistic, since their ratio with the speed of light ($c$) defined as the $\beta$ factor is approximately $\beta \approx 0.03$ \cite{instr}. Therefore, the equation for the ratio of their energies $E_1, E_2$ is:
+
+\begin{equation}
+\frac{M_1}{M_2}=\frac{E_2}{E_1}.
+\label{eq:masstoenergy}
+\end{equation}
+\noindent
+These masses can be obtained by analyzing fission fragment energy spectra. Given the initial mass, the conservation of mass, and the mean number of emitted neutrons, the following relation holds \cite{instr}:
+\begin{equation}
+  M_1+M_2 = 233.6.
+  \label{eq:value}
+\end{equation}
+\subsection{Neutron flux}
+Neutron flux ($\Phi$) is defined as the number of neutrons passing through the surface in a given amount of time. It can be obtained using the formula \cite{neutronflux}:
+
+\begin{equation}
+  \sigma = \frac{R}{\Phi N},
+  \label{eq:sigma}
+\end{equation}
+\noindent
+where $N$ represents the number of atoms in the target (further referred to as $n_t$). $R$ is a symbol for the reaction rate, which in this case can be interpreted as the ratio of the number of counts of fission products ($n_{\text{counts}}$) and time ($t$):
+\begin{equation}
+  R = \frac{n_{\text{counts}}}{t}.
+  \notag
+\end{equation}
+Therefore, the aforementioned equation (\ref{eq:sigma}) can be written as:
+\begin{equation}
+  \Phi = \frac{n_{\text{counts}}}{\sigma t n_t},
+\notag
+\end{equation}
+and in this case, $n_t$ can be obtained by calculating the target's mass ($m_t$), then using its known surface density (thickness) - $\mu$ and the surface area of a circle with radius $r$ to divide it by its molar mass ($M_t$) and multiply by Avogadro's number ($N_A$):
+\begin{equation}
+  n_t = \frac{\mu \cdot \pi r^2 \cdot m_t N_A}{M_t}.
+  \notag
+\end{equation}
+\noindent
+To present the final formula, it is necessary to modify $n_{\text{counts}}$ and $n_t$ according to experimental criteria. For every reaction, two nuclei are produced and detected. Therefore, the final number should be divided by two. Moreover, the efficiency of the detector is limited to $\eta=0.32$, and the target consists of only 10\% Uranium-235. Therefore, the final formula must include a factor $p$ equal to the said percentage:
+\begin{equation}
+  \Phi = \frac{nM_t}{2\sigma \eta \pi \mu N_A p r^2 t}.
+  \label{eq:neutronflux}
+\end{equation}
+
+\subsection{Resolving power}
+In order to calibrate the experimental setup, the resolving power function was analyzed based on the full width at half maximum ($FWHM$) and the peak's position $x$. By changing different parameters discussed in later sections, the resolving power was minimized for the most optimal measurements. Resolving power follows the equation:
+\begin{equation}
+  R=\frac{FWHM}{x}.
+  \label{eq:R}
+\end{equation}
+\section{Experiment}
+The experiment circuit are presented in Figures \ref{pic:uklad}, \ref{pic:rzeczywisty}. A Pu-Be neutron source is surrounded by paraffin wax (moderator). The neutrons traverse towards the Uranium target, which consists of 1\% of $^{234}$U, 10\% of $^{235}$U, and 89\% of $^{238}$U. Close to the target lies a semiconductor detector, which, along with the target, remains under low vacuum to minimize energy loss. The detected signal travels to the preamplifier, powered by a high-voltage power supply, then leads towards a linear amplifier and a multichannel analyzer where the signal is processed in the Tukan8 environment. The experiment involved the calibration discussed in section \ref{sec:calibration} and the main measurement, which lasted for 72 hours.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/uklad.png}
+  \caption{Experimental setup \cite{instr}.}
+  \label{pic:uklad}
+  \end{figure}
+\noindent
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.946\linewidth]{figures/J11a.jpg}
+  \caption{A Pu-Be source \cite{zdjecieukladu}.}
+  \label{pic:rzeczywisty}
+  \end{figure}
+\noindent
+\section{Calibration} \label{sec:calibration}
+In order to calibrate the measurement setup, a series of experiments were run, minimizing the $R$ value from equation (\ref{eq:R}). The following paragraphs present each step with data and reasoning. Optimization was performed by analyzing the natural alpha decay of the target.
+\subsection{High voltage optimization} \label{sec:hv}
+For each experiment, the measurement was run until a few thousand counts were found in the analyzed spectrum. After each measurement was concluded, a Gaussian fit was performed to determine the full width at half maximum (FWHM) and peak parameters with their uncertainties. Following that, for each experiment with a different High Voltage value (HV), its resolving power was calculated using equation (\ref{eq:R}). Results are presented in Table \ref{tab:HV}. Research has shown that the best results are obtained at 50 V. This value was used in the following steps. 
+\begin{table}[htbp]
+  \centering
+  \caption{Results of a series of experiments calibrating the optimal high voltage value. Measurements were taken for a shaping time equal to $ST=1 \ \mu$s. The uncertainty of the $R$ value was determined by propagating uncertainties.}
+  \label{tab:HV}
+  \scalebox{0.7}{
+  \begin{tabular}{cccc}
+    \toprule
+    \textbf{HV [V]} & \textbf{FWHM} & \textbf{Peak position} & \textbf{R} \\
+    \midrule
+    50 & $47.2 \pm 2.1$ & $3,361.92 \pm 0.67$ & $0.01404 \pm 0.00063$ \\
+    55 & $58.5 \pm 5.8$ & $3,373.2 \pm 1.5$ & $0.0174 \pm 0.0017$ \\
+    60 & $52.1 \pm 3.1$ & $3,379.6 \pm 1.1$ & $0.01543 \pm 0.00092$ \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\subsection{Shaping time optimization}
+Following a similar approach as in section \ref{sec:hv}, results presented in Table \ref{tab:ST} were obtained. A shaping time equal to $ST=0.5 \ \mu$s produced the best results. Therefore, it was the setting used furthermore. 
+\begin{table}[htbp]
+  \centering
+  \caption{Results of a series of measurements calibrating the shaping time value. Measurements were taken for a high voltage equal to $HV=50$ V. The uncertainty of the $R$ value was determined by propagating uncertainties.}
+  \label{tab:ST}
+  \scalebox{0.7}{
+    \begin{tabular}{cccc}
+      \toprule
+      \textbf{ST [$\mu$s]} & \textbf{FWHM} & \textbf{Peak} & \textbf{R} \\
+      \midrule
+      1 & $47.2 \pm 2.1$ & $3,361.92 \pm 0.67$ & $0.01404 \pm 0.00063$ \\
+      0.5 & $38.07 \pm 0.69$ & $2,806.57 \pm 0.35$ & $0.01356 \pm 0.00024$ \\
+      2 & $57.8 \pm 1.6$ & $3,693.93 \pm 0.64$ & $0.01566 \pm 0.00043$ \\
+      3 & $76.9 \pm 3.7$ & $3,680.4 \pm 1.0$ & $0.0209 \pm 0.0010$ \\
+      6 & $84.1 \pm 1.7$ & $3,430.73 \pm 0.84$ & $0.02451 \pm 0.00051$ \\
+      10 & $103.4 \pm 3.5$ & $3,058.7 \pm 1.3$ & $0.0338 \pm 0.0012$ \\
+      \bottomrule
+    \end{tabular}
+  }
+\end{table}
+\subsection{Alpha Spectrum with calibration}
+After the initial calibration, an alpha spectrum measurement was conducted, and the results are presented in Figure \ref{pic:alpha}. The spectrum exhibits five peaks. The first peak can be interpreted as $^{238}U$, which is the least active of the three isotopes contained in the target. The second peak represents $^{235}U$, the second most active of the three isotopes. The third peak was found near channel 2800, corresponding to the most active isotope of Uranium in the target, $^{234}U$. The fourth peak was found near channel 3000 and is most likely $^{239}$Pu, created by the fusion of $^{238}$U and a neutron. Its energy would be equal to 5157 keV, which corresponds with the data. The last peak near 3200 matches the energy of $^{238}$Pu - 5499 keV. The presence of such a unit is unexpected and can be explained by contamination of the uranium target. The energy of the highest peak is $E=4775$ keV. Since the expected energy from fission products is much higher, the amplification gain was adjusted so that the alpha particles associated with $^{234}U$ were closer to channel 500. Since energy and channels are proportional, this adjustment allows for the observation of the desired phenomenon.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/alpha.pdf}
+  \caption{Measurement of the alpha particle spectrum emitted by $^{234}$U. The $HV=50$ V, $ST = 0.5 \ \mu$s.}
+  \label{pic:alpha}
+  \end{figure}
+\noindent
+\subsection{Calibration with pulser}
+Having successfully set $HV, ST$, and the amplification gain value, calibration with a pulse was initiated. Knowing which channel has detected a particle provides information about its energy. In order to gain access to such knowledge, a test with a pulser equipped with a multiplier was set up. The pulse was calibrated so its initial value matched the energy of $E=4775$ keV \cite{decay}. The test included measuring peak positions for its multiplication, as shown in Table \ref{tab:pulse}. 
+\noindent
+\begin{table}[htbp]
+  \centering
+  \caption{Results of pulse calibrations. Measurements were taken for a shaping time equal to $ST = 1 \ \mu$s, $HV = 50$ V.}
+  \label{tab:pulse}
+  \scalebox{1.0}{
+    \begin{tabular}{cc}
+      \toprule
+      \textbf{E [keV]} & \textbf{Peak position} \\
+      \midrule
+      4775 & $284.52 \pm 0.030$ \\
+      9550 & $574.6 \pm 0.030$  \\
+      19100 & $1138.92 \pm 0.025$ \\
+      47750 & $2866.52 \pm 0.025$  \\
+      95500 & $5713.62 \pm 0.022$  \\
+      \bottomrule
+    \end{tabular}
+  }
+\end{table}
+\noindent
+Values from Table \ref{tab:pulse} are shown in Figure \ref{pic:fit}, which shows a plot and a fitted curve satisfying the linear equation $ax+b$.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\linewidth]{figures/fit.pdf}
+\caption{Pulse-calibrated linear relation between energy and channel of detection. The parameters have been found as $a=(16.7081\pm0.0041)$ keV$/$channel and $b=(-12\pm10)$ keV. The reduced chi-squared for 5 degrees of freedom has been calculated as 13.203.}
+\label{pic:fit}
+\end{figure}
+
+\noindent
+
+
+\section{Results}
+\subsection{Spectrum of fission fragments}
+After successfully calibrating the experimental setup, a measurement was initiated to detect fission products, lasting for 72 hours. The measured fission spectra are shown in Figure \ref{pic:fissionproducts}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\linewidth]{figures/fissionproducts.pdf}
+\caption{Spectra of fission products. $HV=50$ V, $ST = 0.5 \ \mu$s, total count in the analyzed spectra $n=7291$, total time $t=317552$ s. Peak positions: $2479\pm40$ and $4525 \pm 47$.}
+\label{pic:fissionproducts}
+\end{figure}
+
+\subsection{Mass distribution}
+The peak positions from Figure \ref{pic:fissionproducts} can be used to calculate the energy of fission products using the calibration curve in Figure \ref{pic:fit}. The energy of the first peak was calculated to be $E_1=(41\pm1)$ MeV, and the energy of the second peak was $E_2=(76\pm1)$ MeV. Equation (\ref{eq:masstoenergy}) describes the relationship between mass and energy of products. Therefore, dividing the obtained energies grants access to the ratio of their masses, which can be used for identification. The calculated ratio is $\frac{M_1}{M_2}=1.826\pm0.035$. The expected fission products are $^{92}$Kr and $^{141}$Ba, and the obtained result corresponds to their mass ratio. However, the uncertainty seems too small to meet the criteria of a $3\sigma$ test when comparing the results with the value from equation (\ref{eq:value}).
+\subsection{Neutron flux} 
+The results displayed in Figure \ref{pic:fissionproducts} provide crucial information to calculate the neutron flux. Using Equation (\ref{eq:neutronflux}) with the given parameters: $M_t=235$ g/mol$^{-1}$, $\sigma=582$ b, $\mu=200 \ \mu$g/cm$^2$, $N_A=6.02214076 \times 10^{23}$ mol$^{-1}$ \cite{avogadro}, and $r=5$ mm. Therefore, the neutron flux $\Phi=(1531\pm18)$ s$^{-1}$ cm$^{-2}$. In order to estimate the uncertainty of the neutron flux, the uncertainty on $n$ has been calculated using the square root of the Poisson distribution. The reason behind this is the arbitrary nature of such an amount. It was visually selected by the experimenter, therefore it has to be taken into consideration.
+\begin{thebibliography}{}
+
+
+
+
+  \bibitem{theory} 
+  \href{https://pdf.sciencedirectassets.com/271568/1-s2.0-S0146641022X00033/1-s2.0-S0146641022000242/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPz%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDp8Z5JBKROn2ap5rfEQHnro%2FZlOeSjt9xRYfynvG3tAgIhAIsDNNsVClmxzmnrKuDGGy%2FetehqKJq1DR2LTAGRqNN8KrIFCEQQBRoMMDU5MDAzNTQ2ODY1Igwdrns%2B3L8FbZaeJ0cqjwWKUU%2B4ESdE5Ez%2Fs81nz2xEaCe%2F7B1KLUwzWTQr9TvghsgymCSNiH0%2Fi%2BUQQMT2Fu43Hrs0Ywortev6SDf9WFtvqLpyIpXtUw4jb4p1gNmkECXkj070AeEezmTYZXCD6Z49H8nfBiBSEbcCVBaP%2FYyaJsY9c6IM7cvvVbzv3IH3MboOVel3wt%2FFKDWU7eEjv%2FgKeQO5JROhLwC2wM%2FzKt5zZMlxbZIxy8aZQpuz%2F9rbGC%2BSnk4c133CmuML7ZSqGCCRL2KiTiFK1qIuRQd8VNenQqmw%2BiI2CIG7TxNn%2FmWXC4xrirPnQ8Dk7ix%2FFxsavwucOPYkNz6pP8BajtsVrpcUC1gB50F5%2Fq27ySCT1xAOwyYDF6uDC8gGtIPySWfg3I9Z5VAcp3cualV6L1LQHBDyY6wD3xTqxEuZUCS0y1DPuHE%2BoJ9QKpJ7ZhS0CsD4PDmcMdLTIMQ4JNxH%2F6E%2FnNBwDG41EmbOIg36kNO5ZheYdvFMJURxMmacuI85rPITWQv2m061r1hFIhqUNAhMoaSxLRxX1hIyrjFg2xChGl%2BrhV%2FJGgpkv0T4DUELszoWCdof7StmmSpu9QJJQdUpDeLsU8ITlIDXr01Pwov8cHCgXRohs99luzKsYJ2B63KP9DtchRIAd1Dtf7HBW2Na7YjeWD87448nLZwm5rEfg0%2F1ykN%2FVBN5WBA3mQKX1dWdd2b6fGCz1bxGGfqv0ID0YzYhoMZ%2FuRXb7vBBu9%2BMQBm35JxQPlI2hlDK91GhcxsqSh4%2Bjylpubskw4pzoBmlIjru%2BmlY4qf8OJB43k8Ggi1EY5qC1HRx266Wb3EoPP4AMCMJk5uMLInn10FqGpfd2rk4ZjVEfzEkHg3IHYMx9ozZMIeKyKoGOrABaF7bnJ%2BAo%2BC0X%2Fy0GIaEuWpk38vfef4pLFB5nhkzoCaZch%2FQaJTYzjdgpQySooH6d5WLyxaUjLexbANpg0yHXAwGwUpmjsDUAF6IPLs5K%2B71fjGkjlX9za2pug95TTzie%2FU%2Fm55ZAiXnBufzQvnrQdMAcOfo8NvExWgqni2tkOCAzejvTSQtCi0K2vp4veO462kUoAoFNNlG7b0haAcy%2FMJ5JKBzqASR3bmWTI3WQJA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20231113T122542Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYTBGZFZHC%2F20231113%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=80ddc9fecce31340a0859e3b000219432893dbde4c1a2e99fcab8f1097980662&hash=bebd00e5e455bce46bf87b05389e884b275ac9e2c4ce79a31386651abcfc6392&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0146641022000242&tid=spdf-a6be4178-2807-4dff-adda-7b05bc10fb7d&sid=5347a4446d399646bc7befa51884397aaa13gxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=1603585d5452050101&rr=8256ffb77dfebff5&cc=pl}{\textit{Theory of nuclear fission - Nicolas Schunck, David Regnier}}
+
+
+
+
+
+
+  \bibitem{podr} 
+  \href{https://www.sciencedirect.com/book/9780081009628/nuclear-engineering}{\textit{Nuclear Engineering A Conceptual Introduction to Nuclear Power - Malcolm Joyce}}
+
+  \bibitem{podr2} 
+  \href{https://link.springer.com/book/10.1007/978-1-4615-9701-8}{\textit{Introduction to Atomic and Nuclear Physics Fifth Edition - HENRY SEMAT }}
+
+
+  \bibitem{reakcja} 
+  \href{https://www.sciencedirect.com/science/article/pii/S0969804320305832}{\textit{Characterization of a plutonium–beryllium neutron source P.-A. Söderström, C. Matei, L. Capponi, E. Açıksöz, D.L. Balabanski, I.-O. Mitu}}
+
+  \bibitem{instr} 
+  \href{https://www.fuw.edu.pl/IIPRACOWNIA/home/Opisy-cwiczen/J11_2023_en.pdf}{\textit{Exercise J11 - Measurement of thermal neutron induced fission fragment spectra of $^{236}$U}}
+
+
+  \bibitem{neutronflux} 
+  \href{https://amsdottorato.unibo.it/9954/1/Manna_Alice_tesi.pdf}{\textit{Measurement of the $^{235}$U(n,f) cross section
+  relative to the neutron-proton elastic scattering
+  up to 500 MeV at n$_{TOF}$ - Alice Manna}}
+
+  \bibitem{zdjecieukladu} 
+  \href{https://www.fuw.edu.pl/IIPRACOWNIA/home/}{\textit{Wykaz i instrukcje do ćwiczeń - Pracownia Fizyczna dla Zaawansowanych, Ćwiczenie J11}}
+
+  \bibitem{decay} 
+  \href{https://www-nds.iaea.org/act_ddl/decays.html}{\textit{International Atomic Energy Agency Nuclear Data Services, Decay Data Library for Actinides - List of Evaluations}}
+
+  \bibitem{avogadro} 
+  \href{https://physics.nist.gov/cgi-bin/cuu/Value?na}{\textit{The NIST Reference on constants units and uncertainty, Avogadro constant value}}
+
+
+  \bibitem{publikacja} 
+  \href{https://pubs.aip.org/aapt/ajp/article-abstract/37/6/637/1048315/Measurement-of-Neutron-Induced-Fission-Fragment?redirectedFrom=fulltext}{\textit{Measurement of Neutron-Induced, Fission-Fragment Energy Spectra in the Advanced Laboratory - W. R. French, Jr and R. L. Bunting}}
+
+
+\end{thebibliography}
+
+\end{document}
