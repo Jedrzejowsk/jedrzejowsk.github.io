@@ -1,2 +1,2 @@
 # jedrzejowsk.github.io
-This repository contains projects that I have compiled for inclusion in my CV.
+This repository contains projects I have prepared for inclusion in my CV.
